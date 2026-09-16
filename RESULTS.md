@@ -25,8 +25,23 @@ Registro local: `vm/test-logs.hwm7Bo/results.log`. La imagen publicada se conser
 limpia, separada de esta copia usada para pruebas, y mantiene 1 GiB de capacidad.
 El rootfs limpio ocupa aproximadamente 258 MiB en el constructor.
 
+## Release pública y TCG
+
+Se descargó v0.1.0 desde GitHub mediante el script publicado. SHA256 correcto:
+
+`748e6a7b184c7f4093ed8c64bb522ca68272a303917eb0cfa92c8940d1f51092`
+
+Paquete: **109.641.380 bytes (104,6 MiB)**. La descarga se extrajo en una copia
+nueva y se repitió la prueba completa con `VM_ACCEL=tcg`: **ALL TESTS PASSED**,
+código **0**. Pasaron SSH, DNS, APT, kernel, integridad, ampliación de 1 a 2 GiB,
+rechazo de reducción y persistencia. Los servicios quedaron activos sin unidades fallidas.
+Medición final: 469 MiB de RAM total, **52 MiB usados**, 416 MiB disponibles;
+276 MiB de disco ocupado. TCG se probó en Linux x86_64, no en un anfitrión ARM.
+
+Registro local: `build/release-test/test-logs.IOpdZ9/results.log`.
+Las VMs de prueba se apagan al finalizar para liberar recursos.
+
 ## Pendientes
 
-Verificación de la descarga publicada y TCG se añadirán después de ejecutarse.
 No se ha probado macOS, Windows ni Docker dentro de esta versión. El soporte
 multiplataforma se planifica en Voxy y no se deduce del arranque correcto en Linux.
